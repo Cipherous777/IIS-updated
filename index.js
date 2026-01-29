@@ -3,7 +3,7 @@
 require("dotenv").config()
 const express = require("express")
 const app = express()
-const PORT = 1234
+const PORT = process.env ||1234
 const welcomePage = require("./router/welcomePage")
 const register = require("./router/registeration")
 const portal = require("./router/portal")
