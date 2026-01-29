@@ -3,10 +3,6 @@ const admin = require("firebase-admin");
 
 const db = admin.firestore();
 
-/* =========================
-   PAGE RENDER CONTROLLERS
-========================= */
-
 const adminCreate = (req, res) => {
   res.render("adminCreate");
 };
@@ -52,7 +48,7 @@ const createAdmin = async (req, res) => {
       createdAt: admin.firestore.FieldValue.serverTimestamp()
     });
 
-    res.render("Success");
+    res.render("success");
   } catch (err) {
     console.error(err);
     res.render("fail");
@@ -83,7 +79,7 @@ const createStudent = async (req, res) => {
       createdAt: admin.firestore.FieldValue.serverTimestamp()
     });
 
-    res.render("Success");
+    res.render("success");
   } catch (err) {
     console.error(err);
     res.render("fail");
@@ -114,7 +110,7 @@ const createTeacher = async (req, res) => {
       createdAt: admin.firestore.FieldValue.serverTimestamp()
     });
 
-    res.render("Success");
+    res.render("success");
   } catch (err) {
     console.error(err);
     res.render("fail");
