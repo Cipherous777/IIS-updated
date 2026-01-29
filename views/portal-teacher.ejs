@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IIS Portal - Teacher</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    body{
+        font-family: "Playfair Display", sans-serif;
+    }
+</style>
+<body class="bg-slate-50">
+
+<header class="flex items-center justify-between px-6 py-5 bg-white shadow">
+  <a href="/" class="flex items-center gap-3">
+    <img src="/Images/portal-logo.png" class="w-16 rounded-full border-2 border-blue-600" />
+    <h1 class="text-2xl font-bold text-blue-600">IIS Portal - Teacher</h1>
+  </a>
+  <span class="text-gray-600">Grade <%= grade %></span>
+</header>
+
+<main class="px-4 py-8">
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow rounded-xl overflow-hidden">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="py-3 px-4 text-left">Name</th>
+          <th class="py-3 px-4 text-left">Phone</th>
+          <th class="py-3 px-4 text-left">Subject</th>
+          <th class="py-3 px-4 text-left">Class Test 1</th>
+          <th class="py-3 px-4 text-left">Class Test 2</th>
+          <th class="py-3 px-4 text-left">Class Test 3</th>
+          <th class="py-3 px-4 text-left">Mid</th>
+          <th class="py-3 px-4 text-left">Final</th>
+          <th class="py-3 px-4 text-left">Total</th>
+          <th class="py-3 px-4 text-left">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <% students.forEach(student => { %>
+          <tr>
+            <form action="/portal/teacher/students/<%= teacherId %>/<%= student.id %>/update" method="POST" class="flex w-full">
+              <td class="py-2 px-4"><%= student.name %></td>
+              <td class="py-2 px-4"><%= student.phone %></td>
+              <td class="py-2 px-4"><%= student.subject %></td>
+              <td class="py-2 px-4"><input type="number" name="classTest1" value="<%= student.classTest1 %>" class="w-16 p-1 border rounded"/></td>
+              <td class="py-2 px-4"><input type="number" name="classTest2" value="<%= student.classTest2 %>" class="w-16 p-1 border rounded"/></td>
+              <td class="py-2 px-4"><input type="number" name="classTest3" value="<%= student.classTest3 %>" class="w-16 p-1 border rounded"/></td>
+              <td class="py-2 px-4"><input type="number" name="mid" value="<%= student.mid %>" class="w-16 p-1 border rounded"/></td>
+              <td class="py-2 px-4"><input type="number" name="final" value="<%= student.final %>" class="w-16 p-1 border rounded"/></td>
+              <td class="py-2 px-4"><input type="number" name="total" value="<%= student.total %>" class="w-16 p-1 border rounded" readonly/></td>
+              <td class="py-2 px-4">
+                <input type="hidden" name="grade" value="<%= grade %>"/>
+                <input type="hidden" name="subject" value="<%= student.subject %>"/>
+                <button type="submit" class="bg-orange-600 text-white px-3 py-1 rounded hover:bg-green-700 transition">Update</button>
+              </td>
+            </form>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+</body>
+</html>

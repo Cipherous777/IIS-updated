@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      IIS - Indian International School | Center of Intellectual Pursuits
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="/CSS/main.css" />
+       <script src="/Javascript/faq.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section class="hero">
+       <header class="header">
+        <nav class="navbar">
+          <a href="/">
+            <div class="nav-brand" style="display: flex; gap: 7px; align-items: center">
+              <img src="/Images/logo2.png" alt="IIS Logo" class="logo-img" />
+              <span class="school-name">Indian International School</span>
+            </div>
+          </a>
+          
+          <!-- Hamburger Menu Button -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <ul class="nav-menu">
+            <li><a href="/" class="nav-link active">Home</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+            <li><a href="news" class="nav-link">News</a></li>
+            <li><a href="/gallery" class="nav-link">Gallery</a></li>
+            <li><a href="/contact" class="nav-link">Contact</a></li>
+            <li><a href="/register" class="nav-link">Register</a></li>
+          </ul>
+        </nav>
+      </header>
+
+<section class="relative h-screen w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
+
+  <!-- Background -->
+<div class="absolute inset-0 w-screen h-full">
+  <div class="absolute inset-0 bg-cover bg-center" 
+       style="background-image: linear-gradient(rgb(43 99 202 / 0%), #283b61), url('/Images/hero.jpg');">
+  </div>
+</div>
+
+
+
+
+  <!-- Content -->
+  <div class="relative z-10 h-full flex items-center justify-center text-white px-6">
+    <div class="max-w-6xl w-full text-center">
+
+      <h1 class="font-playfair text-4xl md:text-6xl font-bold mb-12 text-white">
+        Center of Intellectual Pursuits
+      </h1>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14">
+
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl py-8">
+          <span class="stat-number block text-4xl font-bold" data-target="900">0</span>
+          <span class="text-sm uppercase tracking-wider opacity-80">Enrollments</span>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl py-8">
+          <span class="stat-number block text-4xl font-bold" data-target="20">0</span>
+          <span class="text-sm uppercase tracking-wider opacity-80">Qualified Staff</span>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl py-8">
+          <span class="stat-number block text-4xl font-bold" data-target="5">0</span>
+          <span class="text-sm uppercase tracking-wider opacity-80">Clubs</span>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl py-8">
+          <span class="stat-number block text-4xl font-bold" data-target="15">0</span>
+          <span class="text-sm uppercase tracking-wider opacity-80">Years of Expertise</span>
+        </div>
+
+      </div>
+
+    
+
+    </div>
+  </div>
+</section>
+
+
+
+    </section>
+  <!-- Welcome Section -->
+<section class="welcome py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50">
+  <div class="container mx-auto text-center">
+    <h2 class="text-5xl md:text-6xl font-extrabold text-blue-600 mb-6 fade-scroll">Welcome to IIS</h2>
+    <p class="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto mb-8 fade-scroll delay-200">
+      Where learning meets excellence. At Indian International School, we nurture students to grow academically, socially, and creatively in a supportive environment.
+    </p>
+    <div class="flex justify-center gap-6 fade-scroll delay-400">
+      <a href="/register" class="px-8 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition duration-300">
+        Register
+      </a>
+      <a href="/about" class="px-8 py-3 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition duration-300">
+        Learn more
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about py-20 bg-white">
+  <div class="container mx-auto max-w-3xl text-center fade-scroll">
+    <h3 class="text-3xl md:text-4xl font-bold text-blue-600 mb-6">About Indian International School</h3>
+    <p class="text-gray-700 text-lg md:text-xl leading-relaxed">
+      Established in 2006 in Addis Ababa, IIS provides quality education from KG to Grade 8 and is expanding to higher secondary. 
+      Known for academic excellence and a 100% national exam pass rate, we nurture students of all nationalities in a supportive, high-standard learning environment.
+    </p>
+  </div>
+</section>
+
+<!-- Branches Section -->
+<section class="branches py-20 bg-blue-50">
+  <div class="container mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-blue-600 mb-12 fade-scroll">Our Branches</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <!-- KG -->
+      <div class="branch-card bg-white rounded-3xl shadow-md border border-gray-200 overflow-hidden fade-scroll">
+        <img src="/Images/KG.png" alt="KG Branch" class="w-full h-64 object-cover rounded-t-3xl">
+        <div class="p-6 text-center">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">KG</h3>
+          <a href="/home.kg" class="inline-block px-6 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition duration-300">
+            Learn more
+          </a>
+        </div>
+      </div>
+
+      <!-- Primary -->
+      <div class="branch-card bg-white rounded-3xl shadow-md border border-gray-200 overflow-hidden fade-scroll delay-200">
+        <img src="/Images/primary.png" alt="Primary Branch" class="w-full h-64 object-cover rounded-t-3xl">
+        <div class="p-6 text-center">
+          <h3 class="text-xl font-semibold text-orange-600 mb-4">Primary</h3>
+          <a href="/home.primary" class="inline-block px-6 py-2 rounded-full bg-orange-500 text-white font-medium hover:bg-orange-600 transition duration-300">
+            Learn more
+          </a>
+        </div>
+      </div>
+
+      <!-- Secondary -->
+      <div class="branch-card bg-white rounded-3xl shadow-md border border-gray-200 overflow-hidden fade-scroll delay-400">
+        <img src="/Images/secondary.png" alt="Secondary Branch" class="w-full h-64 object-cover rounded-t-3xl">
+        <div class="p-6 text-center">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Secondary</h3>
+          <a href="/home.secondary" class="inline-block px-6 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition duration-300">
+            Learn more
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <section class="highlights">
+      <div class="container">
+        <h2 class="section-title font-bold text-3xl flex justify-center items-center p-4 ">Highlights</h2>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <img src="/Images/activities.png" alt="Activities" />
+            <h3>Activities</h3>
+            <p>Our students discover their passions.</p>
+          </div>
+          <div class="highlight-card">
+            <img src="/Images/community.png" alt="Community" />
+            <h3>Community</h3>
+            <p>A place where you are known, valued, and connected.</p>
+          </div>
+          <div class="highlight-card">
+            <img src="/Images/innovation.png" alt="Innovation" />
+            <h3>Innovation</h3>
+            <p>We prepare students for tomorrow.</p>
+          </div>
+
+          <div class="highlight-card">
+            <img src="/Images/celebration.png" alt="Celebrations" />
+            <h3>Celebrations</h3>
+            <p>Annual Day and cultural events.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <h2 class="section-title  font-bold text-3xl flex justify-center items-center p-4">FAQ</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              What are the school's admission requirements?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Admission is open to all nationalities. Requirements include
+                birth certificate, previous school records, and an entrance
+                assessment for Grades 1+.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              How do I apply or enroll my child?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Visit our registration page, fill out the form, and submit
+                documents. Our admissions team will contact you within 48 hours.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              What curriculum does the school follow?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                We follow the Indian CBSE curriculum with international
+                standards, emphasizing holistic development.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              What are the school hours? <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                KG: 8:00 AM - 12:00 PM; Grades 1-8: 8:00 AM - 3:00 PM, Monday to
+                Friday.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-more">
+          <a href="#" class="btn btn-secondary">See more</a>
+        </div>
+      </div>
+    </section>
+   <!-- Footer -->
+<footer class="footer bg-white shadow-inner mt-16 p-8 md:p-16">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <img src="/Images/logo2.png" alt="IIS Logo" class="h-12 w-auto">
+        <form class="flex gap-2 w-full md:w-auto">
+            <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-lg border border-gray-300 flex-1">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-semibold">Submit</button>
+        </form>
+    </div>
+    <p class="text-gray-500 text-center mt-6">&copy; 2025 IIS. All Rights Reserved.</p>
+</footer>
+
+ 
+  </body>
+</html>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".stat-number");
+
+  counters.forEach(counter => {
+    const target = Number(counter.dataset.target);
+    let current = 0;
+    const speed = 50;
+
+    const interval = setInterval(() => {
+      const increment = Math.ceil(target / 80);
+      current += increment;
+
+      if (current >= target) {
+        counter.textContent = target + "+";
+        clearInterval(interval);
+      } else {
+        counter.textContent = current;
+      }
+    }, speed);
+  });
+});
+</script>

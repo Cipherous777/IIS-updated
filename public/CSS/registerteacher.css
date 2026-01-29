@@ -1,0 +1,217 @@
+
+  /*== FORM CONTAINER ==*/
+.role-selection {
+  width: 90%;
+  max-width: 1200px; /* Prevents it from becoming too wide on large screens */
+  margin:  0 auto;
+  padding: 2rem 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+}
+
+.form-title {
+  color: var(--Primary-Color--);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.form-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #555;
+}
+
+.form form {
+  width: 100%;
+  max-width: 1000px; /* Reasonable max width */
+  margin: 0 auto;
+}
+
+/*== TWO COLUMNS LAYOUT ==*/
+#rows {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  justify-content: center;
+  gap: 40px; /* Reduced from 60px for better mobile fit */
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: 1 1 320px; /* Flex grow, shrink, and basis — key for responsiveness */
+  min-width: 300px; /* Prevents columns from becoming too narrow */
+}
+
+/*== INPUTS ==*/
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input label {
+  color: var(--Primary-Color--);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.input input,
+.input textarea {
+  width: 100%; /* Full width of parent */
+  padding: 16px 18px;
+  border: 2.5px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  background-color: #fafafa;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.input textarea {
+  min-height: 180px; /* Flexible height instead of fixed */
+  max-height: 300px;
+  resize: vertical; /* Allows user to resize vertically only */
+}
+
+.input input:focus,
+.input textarea:focus {
+  outline: none;
+  border-color: var(--Primary-Color--);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  transform: translateY(-1px);
+}
+
+.input input[type="file"] {
+  padding: 14px 16px;
+  background-color: #f8f9fa;
+  border-style: dashed;
+  cursor: pointer;
+}
+
+.input input[type="file"]::file-selector-button {
+  background: var(--Primary-Color--);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+/*== BUTTONS ==*/
+.button {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.button a,
+.button button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-width: 110px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button .btn-prev {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 2px solid #e2e8f0;
+}
+
+.button .btn-prev:hover {
+  background-color: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.button button[type="submit"] {
+  background: linear-gradient(135deg, var(--Primary-Color--), #2563eb);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.button button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/*== RESPONSIVE BREAKPOINTS ==*/
+@media (max-width: 900px) {
+  #rows {
+    gap: 30px;
+  }
+  
+  .column {
+    flex: 1 1 100%; /* Full width on medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .role-selection {
+    width: 95%;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+  }
+
+  .input label {
+    font-size: 1.2rem;
+  }
+
+  .input input,
+  .input textarea {
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+
+  .button {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button a,
+  .button button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .portal-header {
+    padding: 15px;
+  }
+
+  .portal-header .logo img {
+    width: 70px;
+  }
+
+  .portal-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .portal-header button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}

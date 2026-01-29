@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/CSS/main.css">
+  <link rel="stylesheet" href="/CSS/portal2.css">
+  <title>IIS Portal • Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <!-- REDESIGNED HEADER -->
+    <header class="portal-header">
+      <a href="/" class="logo">
+        <img src="/Images/portal-logo.png" alt="IIS Logo">
+        <h1>IIS Portal</h1>
+      </a>
+    
+    </header>
+
+    <div class="roles-grid">
+      <!-- Student -->
+      <div class="role-card" onclick="location.href='/login/student'">
+        <div class="role-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <div class="role-title">Student</div>
+        <div class="role-desc">Access your grades, profile & resources</div>
+      </div>
+
+      <!-- Teacher -->
+      <div class="role-card" onclick="location.href='/login/teacher'">
+        <div class="role-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <div class="role-title">Teacher</div>
+        <div class="role-desc">Manage grades</div>
+      </div>
+
+     
+
+      <!-- Admin -->
+      <div class="role-card" onclick="location.href='/login/admin'">
+        <div class="role-icon">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <div class="role-title">Admin</div>
+        <div class="role-desc">Full access to all registrations & data</div>
+      </div>
+    </div>
+
+   
+  </div>
+
+</body>
+</html>

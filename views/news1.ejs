@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local news</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/CSS/main.css">
+<link rel="stylesheet" href="/CSS/news.css">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+          <a href="/" style="text-decoration: none;">
+            <div class="nav-brand" style="display: flex; gap: 7px; align-items: center">
+              <img src="/Images/logo2.png" alt="IIS Logo" class="logo-img" />
+              <span class="school-name">Indian International School</span>
+            </div>
+          </a>
+          <div class="hamburger"><span></span><span></span><span></span></div>
+          <ul class="nav-menu">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+            <li><a href="/news" class="nav-link active">News</a></li>
+            <li><a href="/gallery" class="nav-link">Gallery</a></li>
+            <li><a href="/contact" class="nav-link">Contact</a></li>
+            <li><a href="/register" class="nav-link">Register</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <main class="p-8 sm:p-16 md:p-32">
+        <div class="title flex justify-center items-center text-center mb-6">
+            <h1 class="text-4xl font-bold text-blue-500">The School Visited by the Indian Prime Minister</h1>
+        </div>
+
+        <section class="news-content mt-8 flex flex-col gap-4">
+            <img src="/Images/news-1.png" alt="News 1 Image" class="w-full h-auto mb-6">
+            <p class="text-lg leading-relaxed">
+               DD India Reports on Ethiopia’s Only CBSE Institution
+In a recent broadcast, the Indian international news channel DD India visited the Indian International School in Addis Ababa to highlight its unique position as the only school in Ethiopia affiliated with India’s Central Board of Secondary Education (CBSE). The report emphasizes that for over a century, Indian educators have been the "backbone" of the Ethiopian education system, and this school is seen as the modern standard-bearer for that long-standing legacy. According to the news team, the institution has successfully integrated Indian curriculum standards with local culture, noting that the student body has grown to over 2,000 students who now study everything from Hindi rhymes to the rigorous CBSE academic syllabus.
+
+            </p>
+            <p class="text-lg leading-relaxed mt-4">
+               During the segment, the news team interviewed the school’s leadership to understand the motivation behind the project. One of the founding members explained that the school was established in August 2006 by a group of nine shareholders who viewed education as a "noble profession" and wanted to provide a high-quality academic option for the people of Ethiopia. The owners emphasized that their goal was to support the local society and elevate educational standards. They also shared that while the transition to an international board was challenging, the unwavering support from the Indian Embassy and the local community made the achievement possible.
+            </p>
+            <p class="text-lg leading-relaxed mt-4">
+The principal of the school told the reporters that there is a significant demand for the Indian education system among Ethiopian parents. She noted that the "vibrancy" of the Indian teaching style and the quality of the teachers have created a strong bond between the school and the families it serves. The report concluded by noting that the school’s influence is part of a broader historical context where Indian professors have even taught high-ranking Ethiopian officials, including the Prime Minister, further solidifying the trust the local community places in the institution’s owners and staff.
+            </p>
+        </section>
+
+        <div class="mt-6 w-full max-w-full overflow-hidden">
+            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/VTkHCaVMf20?si=FkLCxPJxP5A-QqYV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer p-32">
+        <div class="container">
+            <div class="footer-content">
+                <img src="/Images/logo.png" alt="IIS Logo" class="footer-logo" />
+                <form class="footer-signup">
+                    <input type="email" placeholder="Enter your email" class="email-input"/>
+                    <button type="submit" class="btn btn-arrow">Submit</button>
+                </form>
+            </div>
+            <p class="footer-copy">Copyright © 2025 IIS. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

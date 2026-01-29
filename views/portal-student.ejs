@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+</head>
+<body class="bg-slate-50 min-h-screen">
+<style>
+    body{
+        font-family:"Playfair Display", sans-serif ;
+    }
+</style>
+  <!-- HEADER -->
+  <header class="bg-white shadow p-4 flex items-center justify-between">
+    <h1 class="text-2xl font-bold text-blue-600">Student Portal</h1>
+    <span class="text-gray-600">Welcome, <%= studentData.name %></span>
+  </header>
+
+  <!-- TABS -->
+  <div class="max-w-5xl mx-auto mt-6 px-4">
+    <div class="flex border-b border-gray-200">
+      <button class="tab-btn px-4 py-2 -mb-px border-b-2 border-blue-600 text-blue-600 font-medium" data-tab="grades">Grades</button>
+      <button class="tab-btn px-4 py-2 text-gray-500 hover:text-blue-600" data-tab="resources">Resources</button>
+      <button class="tab-btn px-4 py-2 text-gray-500 hover:text-blue-600" data-tab="exams">Exams & Deadlines</button>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="tab-content mt-6">
+
+      <!-- GRADES -->
+      <div id="grades">
+        <h2 class="text-xl font-bold mb-4">Grades</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white shadow rounded-lg">
+            <thead class="bg-blue-600 text-white">
+              <tr>
+                <th class="py-2 px-4 text-left">Subject</th>
+                <th class="py-2 px-4 text-left">Class Test 1</th>
+                <th class="py-2 px-4 text-left">Class Test 2</th>
+                <th class="py-2 px-4 text-left">Class Test 3</th>
+                <th class="py-2 px-4 text-left">Mid</th>
+                <th class="py-2 px-4 text-left">Final</th>
+                <th class="py-2 px-4 text-left">Total</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <% subjects.forEach(sub => { %>
+                <tr>
+                  <td class="py-2 px-4"><%= sub.name %></td>
+                  <td class="py-2 px-4"><%= sub.classTest1 %></td>
+                  <td class="py-2 px-4"><%= sub.classTest2 %></td>
+                  <td class="py-2 px-4"><%= sub.classTest3 %></td>
+                  <td class="py-2 px-4"><%= sub.mid %></td>
+                  <td class="py-2 px-4"><%= sub.final %></td>
+                  <td class="py-2 px-4"><%= sub.total %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- RESOURCES -->
+      <div id="resources" class="hidden">
+        <h2 class="text-xl font-bold mb-4">Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <% resources.forEach(res => { %>
+            <li><a href="<%= res.link %>" target="_blank" class="text-blue-600 underline hover:text-blue-800"><%= res.title %></a></li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <!-- EXAMS -->
+      <div id="exams" class="hidden">
+        <h2 class="text-xl font-bold mb-4">Exams & Deadlines</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <% exams.forEach(exam => { %>
+            <li><strong><%= exam.date %>:</strong> <%= exam.title %></li>
+          <% }) %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JS FOR TABS -->
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = {
+      grades: document.getElementById('grades'),
+      resources: document.getElementById('resources'),
+      exams: document.getElementById('exams')
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Reset all tabs
+        tabs.forEach(t => {
+          t.classList.remove('border-b-2', 'border-blue-600', 'text-blue-600', 'font-medium');
+          t.classList.add('text-gray-500');
+        });
+        // Hide all content
+        Object.values(contents).forEach(c => c.classList.add('hidden'));
+
+        // Activate clicked tab
+        tab.classList.add('border-b-2', 'border-blue-600', 'text-blue-600', 'font-medium');
+        tab.classList.remove('text-gray-500');
+
+        // Show content
+        const active = tab.dataset.tab;
+        contents[active].classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
