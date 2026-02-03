@@ -7,6 +7,9 @@ if (!process.env.FIREBASE_KEY) {
 let serviceAccount;
 try {
   serviceAccount = JSON.parse(process.env.FIREBASE_KEY);
+
+  // Fix line breaks in private_key
+  serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
 } catch (err) {
   console.error("Failed to parse FIREBASE_KEY:", err);
   process.exit(1);
