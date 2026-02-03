@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IIS Portal • Teacher Signup</title>
   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="icon" href="/Images/portal-logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -70,11 +71,95 @@
             <a href="/login/teacher">
             <button type="button" class="w-full mt-4 px-6 py-3 rounded-xl bg-white text-blue-500 font-semibold shadow-md hover:shadow-xl transition" >Log-in</button>
             </a>
+             
           </div>
-
+ 
+        </div>
+         <div class="mt-6">
+  <%if(errorMessage){%>
+               <p class="font-bold text-red-500"><%= errorMessage%></p>
+          <%}else{%>
+             <p class="flex justify-center items-center pt-3">Need help?  <a href="/help">-Click here</a></p>
+             <%}%>
         </div>
       </form>
+     
     </section>
   </main>
+  <script>
+const form = document.querySelector("form");
+
+// Helper functions for showing/clearing errors
+const showError = (input, message) => {
+    let errorEl = input.nextElementSibling;
+    if (!errorEl || !errorEl.classList.contains('error-message')) {
+        errorEl = document.createElement('p');
+        errorEl.className = 'error-message text-red-500 text-sm mt-1';
+        input.parentNode.appendChild(errorEl);
+    }
+    errorEl.textContent = message;
+    input.classList.add('border-red-500');
+};
+
+const clearError = (input) => {
+    const errorEl = input.nextElementSibling;
+    if (errorEl && errorEl.classList.contains('error-message')) {
+        errorEl.textContent = '';
+    }
+    input.classList.remove('border-red-500');
+};
+
+// Validation functions
+const validateName = (name) => /^[A-Za-z\s]{10,50}$/.test(name);
+const validatePhone = (phone) => /^\d{10}$/.test(phone);
+const validateSubject = (subject) => /^[A-Za-z\s]{2,50}$/.test(subject);
+const validatePassword = (pwd) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/.test(pwd);
+
+form.addEventListener("submit", (e) => {
+    let valid = true;
+
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const subject = form.subject.value.trim();
+    const secret = form.secret.value.trim();
+    const password = form.password.value;
+
+    // Full Name
+    if (!validateName(name)) {
+        showError(form.name, "Full Name must be 10-50 letters only.");
+        valid = false;
+    } else clearError(form.name);
+
+    // Phone Number
+    if (!validatePhone(phone)) {
+        showError(form.phone, "Phone must be exactly 10 digits.");
+        valid = false;
+    } else clearError(form.phone);
+
+    // Subject
+    if (!validateSubject(subject)) {
+        showError(form.subject, "Subject must be 2-50 letters only.");
+        valid = false;
+    } else clearError(form.subject);
+
+   
+
+    // Password
+    if (!validatePassword(password)) {
+        showError(form.password, "Password 8-12 chars, must include uppercase, lowercase, and a number.");
+        valid = false;
+    } else clearError(form.password);
+
+    if (!valid) e.preventDefault(); // stop form submission if invalid
+});
+
+// Optional: real-time validation as user types
+form.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', () => {
+        input.dispatchEvent(new Event('blur')); // trigger validation
+    });
+});
+</script>
+
 </body>
 </html>

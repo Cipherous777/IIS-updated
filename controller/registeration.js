@@ -1,15 +1,7 @@
 
 // requring modules
-const admin = require("firebase-admin");
 
-// parse the JSON from the environment variable
-const serviceAccount = JSON.parse(process.env.serviceAccount);
-
-// initializing Firestore
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-});
-
+const admin = require("../firebase")
 const db = admin.firestore()
 const auth = admin.auth()
 

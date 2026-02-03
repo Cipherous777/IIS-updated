@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IIS Portal • Student Signup</title>
   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="icon" href="/Images/portal-logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -36,17 +37,17 @@
             <div>
               <label class="block font-semibold text-blue-600 mb-2 text-lg">Full Name</label>
               <input type="text" name="name" required
-                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition"/>
+                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition" minlength="10" placeholder="Enter your full name"/>
             </div>
             <div>
               <label class="block font-semibold text-blue-600 mb-2 text-lg">Phone Number</label>
               <input type="tel" name="phone" required
-                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition"/>
+                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition" minlength="10" placeholder="Enter your phone number"/>
             </div>
               <div>
               <label class="block font-semibold text-blue-600 mb-2 text-lg">Grade</label>
               <input type="number" name="grade" required
-                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition"/>
+                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition" minlength="1" maxlength="2" placeholder="Enter your grade"/>
             </div>
           </div>
 
@@ -55,12 +56,12 @@
             <div>
               <label class="block font-semibold text-blue-600 mb-2 text-lg">Secret code</label>
               <input type="text" name="secret" required
-                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition"/>
+                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition" placeholder="Enter your secret code"/>
             </div>
             <div>
               <label class="block font-semibold text-blue-600 mb-2 text-lg">Password</label>
               <input type="password" name="password" required
-                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition"/>
+                     class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition" minlength="8" maxlength="12"/>
             </div>
 
             <button type="submit"
@@ -73,8 +74,87 @@
           </div>
 
         </div>
+        <div class="mt-6">
+  <%if(errorMessage){%>
+               <p class="font-bold text-red-500"><%= errorMessage%></p>
+          <%}else{%>
+             <p class="flex justify-center items-center pt-3">Need help?  <a href="/help">-Click here</a></p>
+             <%}%>
+        </div>
+      
       </form>
     </section>
   </main>
+  <script>
+const form = document.querySelector("form");
+
+// Helper functions
+const showError = (input, message) => {
+    let errorEl = input.nextElementSibling;
+    if (!errorEl || !errorEl.classList.contains('error-message')) {
+        errorEl = document.createElement('p');
+        errorEl.className = 'error-message text-red-500 text-sm mt-1';
+        input.parentNode.appendChild(errorEl);
+    }
+    errorEl.textContent = message;
+    input.classList.add('border-red-500');
+};
+
+const clearError = (input) => {
+    const errorEl = input.nextElementSibling;
+    if (errorEl && errorEl.classList.contains('error-message')) {
+        errorEl.textContent = '';
+    }
+    input.classList.remove('border-red-500');
+};
+
+const validateName = (name) => /^[A-Za-z\s]{10,50}$/.test(name);
+const validatePhone = (phone) => /^\d{10}$/.test(phone);
+const validateGrade = (grade) => grade >= 1 && grade <= 12;
+const validatePassword = (pwd) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/.test(pwd);
+
+form.addEventListener("submit", (e) => {
+    let valid = true;
+
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const grade = parseInt(form.grade.value.trim());
+    const password = form.password.value;
+
+    // Full Name
+    if (!validateName(name)) {
+        showError(form.name, "Full Name must be 10-50 letters only.");
+        valid = false;
+    } else clearError(form.name);
+
+    // Phone Number
+    if (!validatePhone(phone)) {
+        showError(form.phone, "Phone must be exactly 10 digits.");
+        valid = false;
+    } else clearError(form.phone);
+
+    // Grade
+    if (!validateGrade(grade)) {
+        showError(form.grade, "Grade must be between 1 and 12.");
+        valid = false;
+    } else clearError(form.grade);
+
+    // Password
+    if (!validatePassword(password)) {
+        showError(form.password, "Password 8-12 chars, must include uppercase, lowercase, and a number.");
+        valid = false;
+    } else clearError(form.password);
+
+    if (!valid) e.preventDefault(); 
+});
+
+
+form.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', () => {
+        input.dispatchEvent(new Event('blur')); 
+    });
+});
+</script>
+
 </body>
 </html>

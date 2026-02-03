@@ -4,20 +4,18 @@ const admin = require("firebase-admin");
 const db = admin.firestore();
 
 const adminCreate = (req, res) => {
-  res.render("adminCreate");
+  res.render("adminCreate" , {errorMessage:""});
 };
 
 const studentCreate = (req, res) => {
-  res.render("studentCreate");
+  res.render("studentCreate", {errorMessage:""});
 };
 
 const teacherCreate = (req, res) => {
-  res.render("teacherCreate");
+  res.render("teacherCreate", {errorMessage:""});
 };
 
-/* =========================
-   ACCOUNT CREATION LOGIC
-========================= */
+
 
 const getSecrets = async () => {
   const doc = await db.collection("secrets").doc("secrets").get();
@@ -25,7 +23,7 @@ const getSecrets = async () => {
   return doc.data();
 };
 
-/* ---------- ADMIN ---------- */
+
 
 const createAdmin = async (req, res) => {
   try {
@@ -33,6 +31,15 @@ const createAdmin = async (req, res) => {
 
     if (!name || !phone || !password || !secret) {
       return res.render("fail");
+    }
+    const phoneExists = await db
+    .collection("createAccount-admins")
+    .where("phone", "==", phone)
+    .get()
+    let errorMessage
+    if(!phoneExists.empty){
+      errorMessage = "Phone number exists"
+      return res.render("adminCreate" , {errorMessage})
     }
 
     const secrets = await getSecrets();
@@ -64,6 +71,18 @@ const createStudent = async (req, res) => {
     if (!name || !phone || !password || !secret) {
       return res.render("fail");
     }
+   
+      // check if phone exists
+      const checkPhone = await db
+      .collection("createAccount-students")
+      .where("phone", "==" , phone)
+      .get()
+   
+       let errorMessage
+      if(!checkPhone.empty){
+        errorMessage = "Phone already exists"
+        return res.render("studentCreate" , {errorMessage})
+      }
 
     const secrets = await getSecrets();
     if (!secrets || secret !== secrets.student) {
@@ -95,6 +114,20 @@ const createTeacher = async (req, res) => {
     if (!name || !phone || !password || !secret) {
       return res.render("fail");
     }
+
+     // check if phone number exists
+     const checkPhone = await db
+     .collection("createAccount-teachers")
+     .where("phone" , "==", phone)
+     .get()
+     
+     let errorMessage
+
+     if(!checkPhone.empty){
+      errorMessage = "Phone number is taken!"
+      res.render("teacherCreate", {errorMessage})
+     }
+
 
     const secrets = await getSecrets();
     if (!secrets || secret !== secrets.teacher) {

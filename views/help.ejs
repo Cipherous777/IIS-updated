@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help center</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="/Images/logo.png">
+<link rel="stylesheet" href="/CSS/main.css">
+
+
+</head>
+<body class="bg-gray-50 pt-32">
+
+  <header class="header">
+      <nav class="navbar">
+        <a href="/" style="text-decoration: none;">
+          <div class="nav-brand" style="display: flex; gap: 7px; align-items: center">
+            <img src="/Images/logo2.png" alt="IIS Logo" class="logo-img" />
+            <span class="school-name">Indian International School</span>
+          </div>
+        </a>
+        
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/about" class="nav-link">About</a></li>
+          <li><a href="news" class="nav-link active">News</a></li>
+          <li><a href="/gallery" class="nav-link">Gallery</a></li>
+          <li><a href="/contact" class="nav-link ">Contact</a></li>
+          <li><a href="/register" class="nav-link">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+<!-- Main -->
+<main class="container mx-auto p-4 sm:p-8 md:p-16">
+
+  <!-- Section Header -->
+  <div class="text-center mb-12">
+    <h1 class="text-5xl md:text-6xl font-bold text-blue-600 news-fade opacity-0 translate-y-8">Help center</h1>
+    <p class="mt-3 text-gray-600 text-lg md:text-xl news-fade opacity-0 translate-y-8">Ask any questions any time!</p>
+  </div>
+
+  <!-- News Grid -->
+   <section class="faq">
+      <div class="container">
+        <h2 class="section-title  font-bold text-3xl flex justify-center items-center p-4"></h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              Registeration page
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer p-32 text-[1.1rem]">
+              <p class="">
+                First go to <a href="/register" class="text-blue-500">the register page. </a> After that, choose whether you are applying as a teacher or student. Fill the necessary informations and click send. The data will be sent to the school admin. Fortunatley, the admin will contact you after your registeration and will provide you the link for the payment process. 
+              </p>
+              <p>
+               Important:
+              <li>Phone number and Email (for students) should be the parent's.  </li>
+              
+              <li>The description should be up-to-date for both students and teachers. </li>
+              <li>For new students, it is important to have the following:</li>
+              <ol>*Report card of the previous grades</ol>
+              <ol>*Any necessary certifications show casing the student's performance</ol>
+              <li>For new teacher, it is important to have resume / CV. The teacher will be requested to show his CV if the school approves and contact him/her.</li>
+               <li>If the registeration shows you "failed!", even after following these instructions, it would likely mean the server has crashed. For this scenarios, it is suggested to contact the school for further instructions. You can find the conact informations on <a href="/contact" class="text-blue-500">the contact page</a>. You could also use <a href="https://t.me/IISPORTALHELPCENTER" class="text-blue-500"> the telegram group</a> to contact us. </li>
+              </p>
+              
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+             Portal
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                To access your portal first go to the <a href="/portal">portal page</a>. Choose from student, teacher or admins to continue. If you don't have an account, click register and create account. But if you do have an account, just log-in with your phone number and password. If you face any issue regarding portal registeration, contact the school or use the telegram account as given below
+                <br>
+                <li>School: <a href="/contact">Contact page</a></li>
+                <li>Telegram page: <a href="https://t.me/IISPORTALHELPCENTER">Click here</a></li>
+                <br>
+                <span class="text-red-500">Note: 
+                    <li class="text-red-500">You can't use the same phone number to create multiple accounts for security reasons.</li>
+                    <li class="text-red-500">Any activity of trying to steal users information will result in permanent banning of account. </li>
+                    <li class="text-red-500">Secret code will be provided by the school. Check the telegram page <a href="">the telegram page</a> for more information.</li>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Got any questions? <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Please ask any questions you have on this page: <a href="https://t.me/IISPORTAL" class="text-blue-500">Telegram channel</a>  |  <a href="https://t.me/IISPORTALHELPCENTER" class="text-blue-500">Telegram Group</a>
+              </p>
+            </div>
+          </div>
+        </div>
+     
+      </div>
+    </section>
+</main>
+
+<!-- JS for tilt + scroll fade -->
+<script>
+  // Tilt effect
+  function tiltCard(e, card) {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; 
+    const y = e.clientY - rect.top;  
+    const cx = rect.width/2;
+    const cy = rect.height/2;
+    const dx = (x - cx)/cx;
+    const dy = (y - cy)/cy;
+    card.style.transform = `perspective(1000px) rotateY(${dx*8}deg) rotateX(${-dy*8}deg) scale(1.03)`;
+  }
+  function resetCard(card){
+    card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+  }
+
+  // Scroll fade-in with stagger
+  const newsFadeEls = document.querySelectorAll('.news-card-fade, .news-fade');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('opacity-100','translate-y-0');
+        entry.target.classList.remove('opacity-0','translate-y-8');
+        entry.target.style.transitionDelay = `${Array.from(newsFadeEls).indexOf(entry.target)*150}ms`;
+      }
+    });
+  }, { threshold: 0.1 });
+  newsFadeEls.forEach(el => observer.observe(el));
+
+    // Hamburger Menu Toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+            document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const answer = btn.nextElementSibling;
+          const toggle = btn.querySelector(".faq-toggle");
+          answer.style.display =
+            answer.style.display === "block" ? "none" : "block";
+          toggle.textContent = answer.style.display === "block" ? "−" : "+";
+        });
+      });
+    
+</script>
+
+<!-- Footer -->
+<footer class="footer bg-white shadow-inner mt-16 p-8 md:p-16">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <img src="/Images/logo.png" alt="IIS Logo" class="h-12 w-auto">
+        <form class="flex gap-2 w-full md:w-auto" method="post" action="/footer">
+            <input type="email" name="email" placeholder="Enter your email" class="px-4 py-2 rounded-lg border border-gray-300 flex-1">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-semibold">Submit</button>
+        </form>
+    </div>
+    <p class="text-gray-500 text-center mt-6">&copy; 2025 IIS. All Rights Reserved.</p>
+</footer>
+
+</body>
+<style>
+    
+.faq {
+  padding: 4rem 0;
+}
+
+.faq-list {
+  margin-bottom: 2.5rem;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--Primary-Color--);
+}
+
+.faq-question {
+    width: 100%;
+    background: #f8f9fa;
+    padding: 1.2rem 1.5rem;
+    border: none;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s 
+ease;
+    font-family: var(--Font--);
+}
+
+.faq-question:hover {
+  background: #e9ecef;
+}
+
+.faq-toggle {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--Primary-Color--);
+  transition: transform 0.2s ease;
+}
+
+.faq-answer {
+  display: none;
+  padding: 1.2rem 3.5rem;
+  background: #f8f9fa;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.faq-answer p, .faq-answer li, .faq-answer ol{
+    font-size: 1.1rem !important;
+}
+.faq-more {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+</style>
+<script src="/Javascript/faq.js"></script>
+</html>

@@ -139,6 +139,7 @@ ul {
     margin-bottom: 0.8rem;
     text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     letter-spacing: -0.5px;
+    color: var(--White--) !important;
 }
 
 .banner-subtitle {
@@ -148,6 +149,7 @@ ul {
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
+     color: var(--White--) !important;
 }
 
 /* Optional: Add playful floating shapes */

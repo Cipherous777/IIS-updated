@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IIS Kindergarten</title>
+    <link rel="stylesheet" href="CSS/main.css" />
+    <link rel="stylesheet" href="CSS/kg.css" />
+        <link rel="icon" href="/Images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+  <header class="header">
+      <nav class="navbar">
+        <a href="/" style="text-decoration: none;">
+          <div class="nav-brand" style="display: flex; gap: 7px; align-items: center">
+            <img src="/Images/logo2.png" alt="IIS Logo" class="logo-img" />
+            <span class="school-name">Indian International School</span>
+          </div>
+        </a>
+        
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link active">Home</a></li>
+          <li><a href="/about" class="nav-link">About</a></li>
+          <li><a href="news" class="nav-link">News</a></li>
+          <li><a href="/gallery" class="nav-link">Gallery</a></li>
+          <li><a href="/contact" class="nav-link ">Contact</a></li>
+          <li><a href="/register" class="nav-link">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="kg-banner">
+      <div class="container banner-inner">
+        <h1 class="banner-title">Kindergarten</h1>
+        <p class="banner-subtitle">
+          Where little minds bloom with joy and curiosity
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <!-- Welcome Section -->
+        <section class="section welcome">
+          <h2>Welcome to IIS Kindergarten</h2>
+          <p>
+            Our Kindergarten is a nurturing, colorful, and safe space designed
+            to spark creativity, develop social skills, and build a strong
+            foundation for lifelong learning. We believe in learning through
+            play, exploration, and love.
+          </p>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section class="section gallery">
+          <h2>Our Happy Moments</h2>
+          <div class="gallery-grid">
+            <img src="Images/kg-1.jpg" alt="KG kids playing" />
+            <img src="Images/kg-2.jpg" alt="Art & Craft" />
+            <img src="Images/kg-3.jpg" alt="Outdoor fun" />
+            <img src="Images/kg-4.jpg" alt="Story time" />
+          </div>
+          <div class="btn-wrapper">
+            <a href="/gallery" class="btn">See Full Gallery</a>
+          </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section features">
+          <h2>Why Choose IIS KG?</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <h3>Play-Based Learning</h3>
+              <p>Hands-on activities that make learning fun and natural.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Experienced Teachers</h3>
+              <p>Loving, trained educators who care for every child.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Safe & Colorful Campus</h3>
+              <p>Bright classrooms and secure play areas.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Holistic Development</h3>
+              <p>Focus on emotional, social, and cognitive growth.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-white shadow-inner mt-16 p-8 md:p-16">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <img src="/Images/logo2.png" alt="IIS Logo" class="h-12 w-auto">
+        <form class="flex gap-2 w-full md:w-auto" method="post" action="/footer">
+            <input type="email" name="email" placeholder="Enter your email" class="px-4 py-2 rounded-lg border border-gray-300 flex-1">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-semibold">Submit</button>
+        </form>
+    </div>
+    <p class="text-gray-500 text-center mt-6">&copy; 2025 IIS. All Rights Reserved.</p>
+</footer>
+  </body>
+    <script>
+      // Hamburger Menu Toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+    
+  </script>
+</html>
